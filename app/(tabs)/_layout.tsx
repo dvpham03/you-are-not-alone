@@ -1,31 +1,44 @@
-import { Link, Tabs } from 'expo-router';
-
-import { HeaderButton } from '../../components/HeaderButton';
-import { TabBarIcon } from '../../components/TabBarIcon';
+import { Tabs } from 'expo-router';
+import { useColorScheme } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function TabLayout() {
+  const colorScheme = useColorScheme();
+
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: 'black',
+        tabBarActiveTintColor: colorScheme === 'dark' ? '#fff' : '#000',
+        tabBarInactiveTintColor: colorScheme === 'dark' ? '#666' : '#999',
+        tabBarStyle: {
+          backgroundColor: colorScheme === 'dark' ? '#000' : '#fff',
+        },
       }}>
       <Tabs.Screen
-        name="index"
+        name="profile"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <HeaderButton />
-            </Link>
+          title: 'Profile',
+          tabBarIcon: ({ color, size }: { color: string; size: number }) => (
+            <Ionicons name="person" size={size} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="index"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Connections',
+          tabBarIcon: ({ color, size }: { color: string; size: number }) => (
+            <Ionicons name="people" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="community"
+        options={{
+          title: 'Chats',
+          tabBarIcon: ({ color, size }: { color: string; size: number }) => (
+            <Ionicons name="chatbubbles" size={size} color={color} />
+          ),
         }}
       />
     </Tabs>
