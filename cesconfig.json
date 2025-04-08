@@ -1,0 +1,44 @@
+{
+  "cesVersion": "2.14.3",
+  "projectName": "you-are-not-alone",
+  "packages": [
+    {
+      "name": "expo-router",
+      "type": "navigation",
+      "options": {
+        "type": "tabs"
+      }
+    },
+    {
+      "name": "stylesheet",
+      "type": "styling"
+    },
+    {
+      "name": "zustand",
+      "type": "state-management"
+    },
+    {
+      "name": "supabase",
+      "type": "authentication"
+    }
+  ],
+  "flags": {
+    "noGit": false,
+    "noInstall": false,
+    "overwrite": false,
+    "importAlias": true,
+    "packageManager": "bun",
+    "eas": false,
+    "publish": false
+  },
+  "packageManager": {
+    "type": "bun",
+    "version": "1.2.8"
+  },
+  "os": {
+    "type": "Darwin",
+    "platform": "darwin",
+    "arch": "arm64",
+    "kernelVersion": "23.1.0"
+  }
+}
